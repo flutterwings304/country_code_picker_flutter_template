@@ -25,7 +25,7 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.green,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(title: 'Country Code Phone Field'),
     );
   }
 }
@@ -50,25 +50,39 @@ class _MyHomePageState extends State<MyHomePage> {
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
       ),
-      body: Center(
-  
-        child: Column(
-       
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-          IntlPhoneField(
-    decoration: InputDecoration(
-        labelText: 'Phone Number',
-        border: OutlineInputBorder(
-            borderSide: BorderSide(),
-        ),
-    ),
-    initialCountryCode: 'IN',
-    onChanged: (phone) {
-        print(phone.completeNumber);
-    },
-)
-          ],
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Center(
+        
+          child: Column(
+         
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+            IntlPhoneField(
+              flagsButtonPadding: const EdgeInsets.all(8),
+              dropdownIconPosition: IconPosition.leading,
+          decoration: const InputDecoration(
+          labelText: 'Phone Number',
+          border: OutlineInputBorder(
+              borderSide: BorderSide(),
+          ),
+          ),
+       countries: ["IN"],
+          initialCountryCode: 'in',
+          onCountryChanged: (value) {
+            
+          },
+          onSaved: (newValue) {
+            
+          },
+          onSubmitted: (val){},
+          onTap: (){},
+          onChanged: (phone) {
+         print(phone.countryISOCode);
+          },
+      )
+            ],
+          ),
         ),
       ),
      
